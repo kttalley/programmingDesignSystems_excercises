@@ -11,7 +11,7 @@
                 createCanvas(width, height);
                 
             }
-
+            let noiseScale=0.02;
             function draw() {
                 /*
                 //cos = x, y = sin exercies
@@ -39,19 +39,20 @@
                 }
                 endShape();
                 */
-                
                 //now with random radius
                 translate(width/2, height/2);
                 background(200, 50);
+               
 
                 beginShape();
                 for(var i = 0; i < 100; i++) {
-                    var radius = 10 + random(50);
+                    let noiseVal = noise((mouseX+i)*noiseScale, (mouseY+i)*noiseScale);
+                    var radius = 1 +  noiseVal*100;
                     var x = cos(radians(i*3.6)) * radius;
                     var y = sin(radians(i*3.6)) * radius;
                     vertex(x, y);
                 }
-                endShape();
+                endShape(CLOSE);
 
             }
 
