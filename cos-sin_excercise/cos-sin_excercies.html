@@ -9,7 +9,7 @@
             let height = window.innerHeight;
             function setup() {
                 createCanvas(width, height);
-                background(200);
+                
             }
 
             function draw() {
@@ -25,6 +25,34 @@
                 var y = sin(radians(80)) * radius;
                 ellipse(x, y, 20, 20);
                 */
+
+                /*
+                // procedural custom shape
+                var numVertices = 9;
+                var spacing = 360 / numVertices;
+                translate(width/2, height/2);
+                beginShape();
+                for(var i = 0; i < 10; i++) {
+                    var x = cos(radians(i* spacing)) * 100;
+                    var y = sin(radians(i* spacing)) * 100;
+                    vertex(x, y);
+                }
+                endShape();
+                */
+                
+                //now with random radius
+                translate(width/2, height/2);
+                background(200, 50);
+
+                beginShape();
+                for(var i = 0; i < 100; i++) {
+                    var radius = 10 + random(50);
+                    var x = cos(radians(i*3.6)) * radius;
+                    var y = sin(radians(i*3.6)) * radius;
+                    vertex(x, y);
+                }
+                endShape();
+
             }
 
         </script>
